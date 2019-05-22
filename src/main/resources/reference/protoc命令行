@@ -1,0 +1,8 @@
+protoc编译指令：
+
+protoc -I=源地址 --java_out=目标地址  源地址/xxx.proto
+
+-I：主要用于指定待编译的 .proto 消息定义文件所在的目录
+--java_out: proto 里面注明的java_package为路径完整生成，所以目标地址不必包含java_package及之后的路径
+
+protoc -I=E:\GitHub\protobuf\src\main\protobuf --java_out=E:\GitHub\protobuf\src\main\java\ SubscribeReq.proto
