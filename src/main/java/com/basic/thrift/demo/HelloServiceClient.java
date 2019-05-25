@@ -7,8 +7,12 @@ import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
 import org.apache.thrift.transport.TTransportException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 public class HelloServiceClient {
+    public static Logger log = LoggerFactory.getLogger(HelloServiceClient.class);
     public static void main(String[] args) {
         try {
             String ip = "127.0.0.1";
@@ -20,7 +24,7 @@ public class HelloServiceClient {
             client.helloVoid();
 
             String resp = client.helloString("你好！");
-            System.out.println("服务器回复：" + resp);
+            log.info("服务器回复：" + resp);
             transport.close();
         } catch (TTransportException e) {
             e.printStackTrace();

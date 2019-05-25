@@ -1,0 +1,5 @@
+thrift --gen <language> <Thrift filename>
+
+例：thrift --gen java E:\GitHub\thrift-grpc-protobuf\src\main\resources\thrift\Hello.thrift
+该命令会将Hello.thrift接口文件自动转化为java文件，并放在gen-java下的指定路径下，
+Hello.thrift文件中指定了该路径；
