@@ -22,3 +22,24 @@ exception：对应 Java 的 Exception
 
 服务类型：
 service：对应服务的类
+
+Thrift的协议
+Thrift可以让用户选择客户端与服务端之间传输通信协议的类别，在传输协议上总体划分为文本(text)和二进制(binary)传输协议。为节约带宽，提高传输效率，一般情况下使用二进制类型的传输协议为多数，有时还会使用基于文本类型的协议，这需要根据项目/产品中的实际需求。常用协议有以下几种：
+
+TBinaryProtocol：二进制编码格式进行数据传输
+TCompactProtocol：高效率的、密集的二进制编码格式进行数据传输
+TJSONProtocol： 使用JSON文本的数据编码协议进行数据传输
+TSimpleJSONProtocol：只提供JSON只写的协议，适用于通过脚本语言解析
+
+Thrift的传输层
+常用的传输层有以下几种：
+TSocket：使用阻塞式I/O进行传输，是最常见的模式
+TNonblockingTransport：使用非阻塞方式，用于构建异步客户端
+TFramedTransport：使用非阻塞方式，按块的大小进行传输，类似于Java中的NIO
+
+Thrift的服务端类型:
+TSimpleServer：单线程服务器端，使用标准的阻塞式I/O
+TThreadPoolServer：多线程服务器端，使用标准的阻塞式I/O
+TNonblockingServer：单线程服务器端，使用非阻塞式I/O
+THsHaServer：半同步半异步服务器端，基于非阻塞式IO读写和多线程工作任务处理
+TThreadedSelectorServer：多线程选择器服务器端，对THsHaServer在异步IO模型上进行增强
